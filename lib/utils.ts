@@ -15,7 +15,7 @@ export function formatDate(dateString: string): string {
   });
 }
 
-export function calculateAverageRating(categories: any[]): number {
+export function calculateAverageRating(categories: { rating: number }[]): number {
   if (!categories || categories.length === 0) return 0;
   const sum = categories.reduce((acc, cat) => acc + cat.rating, 0);
   return Math.round((sum / categories.length) * 10) / 10;
