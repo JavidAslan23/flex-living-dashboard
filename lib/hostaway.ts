@@ -1,20 +1,29 @@
-import { Review } from '@/types/review';
+import {FilterOptions, Review} from '@/types/review';
 
 const API_BASE = '/api/reviews';
 
-export async function fetchHostawayReviews(filters?: any): Promise<Review[]> {
+export async function fetchHostawayReviews(filters?: Partial<FilterOptions>): Promise<Review[]> {
     try {
-        const params = new URLSearchParams(filters);
-        const response = await fetch(`${API_BASE}/hostaway?${params}`);
+        const params = new URLSearchParams();
+
+        if (filters) {
+            Object.entries(filters).forEach(([key, value]) => {
+                if (value !== undefined && value !== null && value !== "") {
+                    params.append(key, String(value));
+                }
+            });
+        }
+
+        const response = await fetch(`${API_BASE}/hostaway?${params.toString()}`);
 
         if (!response.ok) {
-            throw new Error('Failed to fetch reviews');
+            throw new Error("Failed to fetch reviews");
         }
 
         const data = await response.json();
-        return data.data || [];
+        return (data.data as Review[]) || [];
     } catch (error) {
-        console.error('Error fetching reviews:', error);
+        console.error("Error fetching reviews:", error);
         return [];
     }
 }
