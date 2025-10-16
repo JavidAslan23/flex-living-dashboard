@@ -162,7 +162,7 @@ export default function DashboardPage() {
                 <div className="max-w-7xl mx-auto px-6 py-4">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-4">
-                            <Link href="/" className="text-slate-600 hover:text-slate-900 transition">
+                            <Link href="/public" className="text-slate-600 hover:text-slate-900 transition">
                                 <Home size={20} />
                             </Link>
                             <div>
