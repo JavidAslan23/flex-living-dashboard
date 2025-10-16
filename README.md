@@ -117,7 +117,7 @@ MIT
 
 ## 👤 Author
 
-[Your Name] - [your-email@example.com]
+[Javid Aslanov] - [cavidaslan23@gmail.com]
 
 ---
 
