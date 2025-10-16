@@ -16,7 +16,7 @@ interface Review {
     isApproved: boolean;
 }
 
-export default function PropertyPage({ params }: { params: { id: string } }) {
+export default function PropertyPage() {
     const [reviews, setReviews] = useState<Review[]>([]);
     const [loading, setLoading] = useState(true);
 
